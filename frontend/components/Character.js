@@ -1,12 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function Character() { // ❗ Add the props
   // ❗ Create a state to hold whether the homeworld is rendering or not
   // ❗ Create a "toggle" click handler to show or remove the homeworld
+  function Character(props) { 
+const [showHomeworld, setShowHomeworld] = useState(false);
+
+      const toggleHomeworld = () => {
+  setShowHomeworld(!showHomeworld);
+};
   return (
-    <div>
-      {/* Use the same markup with the same attributes as in the mock */}
-    </div>
+  <div>
+    <h3>{props.character.name}</h3>
+    <p>{props.character.description}</p>
+    <button onClick={toggleHomeworld}>
+      {showHomeworld ? 'Hide Homeworld' : 'Show Homeworld'}
+    </button>
+    {showHomeworld && <p>{props.character.homeworld}</p>}
+  </div>
   )
 }
 
