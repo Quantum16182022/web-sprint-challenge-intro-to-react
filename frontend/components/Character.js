@@ -1,36 +1,58 @@
 import React, { useState } from 'react';
-
-function Character({ character, planet }) {
+function Character({ characterName, planet }) {
   const [showPlanet, setShowPlanet] = useState(false);
-
+  
   return (
-    <div className="card">
-      <h3>{character.name}</h3>
-      <button onClick={() => setShowPlanet(!showPlanet)}>
-        {showPlanet ? 'Hide Planet' : 'Show Planet'}
-      </button>
-      {showPlanet && (
-        <>
-          <h4>Planet</h4>
-          <p>{planet}</p>
-        </>
-      )}
+    <div className="character-card">
+      <h3 className="character-name" onClick={() => setShowPlanet(!showPlanet)}>
+        {characterName}
+      </h3>
+      
+      <p>
+  {showPlanet && 
+    <span>
+      planet: <span className="character-planet">{planet}</span>
+    </span>
+  }
+</p>
     </div>
   );
 }
-export default Character;
-// import React from 'react';
-//   function Character({ character, planet }) {
-//     const [showPlanet, setShowPlanet] = useState(false);
+
+// function Character({ characterName, planet }) {
+//   const [showPlanet, setShowPlanet] = useState(false);
   
 //   return (
-//      <div className="card">
-//       <h3>{character.name}</h3>
+//     <div className="character-card">
+//       <h3 className="character-name">{characterName}</h3>
+//       <p>
+//         Planet: 
+//         {showPlanet && <span className="character-planet">{planet}</span>}
+//       </p>
 //       <button onClick={() => setShowPlanet(!showPlanet)}>
 //         {showPlanet ? 'Hide Planet' : 'Show Planet'}
 //       </button>
-//       <h4>Planet</h4>
-//       <p>{planet}</p>
+//     </div>
+//   );
+// }
+
+export default Character;
+//  import React, { useState } from 'react';
+// //  import Character from './Character';
+
+// function Character({ characterName, planet }) {
+//   const [showPlanet, setShowPlanet] = useState(false);
+  
+//   return (
+//     <div className="character-card">
+//       <h3> className="character-name"</h3> 
+//       <p>
+//       "planet : "
+//       <span> className="character-planet"</span>
+//       </p>
+//       <button onClick={() => setShowPlanet(!showPlanet)}>
+//         {showPlanet ? 'Hide Planet' : 'Show Planet'}
+//       </button>
 //     </div>
 //   );
 // }
