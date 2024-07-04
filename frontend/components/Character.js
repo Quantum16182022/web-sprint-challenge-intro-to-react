@@ -4,10 +4,10 @@ function Character({ characterName, planet }) {
   
   return (
     <div className="character-card">
-      <h3 className="character-name" onClick={() => setShowPlanet(!showPlanet)}>
+    
+      {<h3 className="character-name" onClick={() => setShowPlanet(!showPlanet)}>
         {characterName}
-      </h3>
-      
+      </h3>}         
       <p>
   {showPlanet && 
     <span>
@@ -18,8 +18,8 @@ function Character({ characterName, planet }) {
     </div>
   );
 }
+export default Character;
 
-// function Character({ characterName, planet }) {
 //   const [showPlanet, setShowPlanet] = useState(false);
   
 //   return (
@@ -36,7 +36,7 @@ function Character({ characterName, planet }) {
 //   );
 // }
 
-export default Character;
+
 //  import React, { useState } from 'react';
 // //  import Character from './Character';
 

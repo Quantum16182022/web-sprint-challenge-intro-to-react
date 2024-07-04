@@ -58,13 +58,14 @@ const urlPeople = 'http://localhost:9009/api/people';
 function App() {
   const [characters, setCharacters] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => {    
     const fetchCharacters = async () => {
       const [planetsData, peopleData] = await Promise.all([
         axios.get(urlPlanets),
         axios.get(urlPeople)
       ]);
-
+      console.log(characters)
+       
       setCharacters(peopleData.data.map(character => ({
         ...character,
         planets: character.planets
@@ -74,9 +75,9 @@ function App() {
             })
           : [],
       })));
-    };
+         };
     fetchCharacters();
-  }, []);
+  }, [characters]);
   return (
     <div>
       <h2>Star Wars Characters</h2>
@@ -89,6 +90,10 @@ function App() {
         />
       ))}
     </div>
+      );
+    }
+    
+    export default App;
   
   // return (
   //   <div>
@@ -101,10 +106,7 @@ function App() {
   //        />
   //      ))}
   //      </div>
-  );
-}
 
-export default App;
 
 
 // :exclamation: DO NOT CHANGE THE CODE BELOW
