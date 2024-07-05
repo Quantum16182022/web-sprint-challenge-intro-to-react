@@ -65,16 +65,22 @@ function App() {
         axios.get(urlPeople)
       ]);
       console.log(characters)
-       
-      setCharacters(peopleData.data.map(character => ({
-        ...character,
-        planets: character.planets
-          ? character.planets.map(planetId => {
-              const planet = planetsData.data.find(planet => planet.id === planetId);
-              return planet ? planet.name : 'Unknown Planet';
-            })
-          : [],
-      })));
+      setCharacters(peopleData.data.map(character => {
+        const planet = planetsData.data.find(planet => planet.id === character.homeworld);
+        return {
+          ...character,
+          homeworld: planet ? planet.name : 'Unknown Planet',
+        };
+      }));
+      // setCharacters(peopleData.data.map(character => ({
+      //   ...character,
+      //   planets: character.planets
+      //     ? character.planets.map(planetId => {
+      //         const planet = planetsData.data.find(planet => planet.id === planetId);
+      //         return planet ? planet.name : 'Unknown Planet';
+      //       })
+      //     : [],
+      // })));
          };
     fetchCharacters();
   }, [characters]);
@@ -86,7 +92,7 @@ function App() {
         <Character
           key={index}
           characterName={character.name}
-          planet={character.planets[0]}
+          homeworld={character.homeworld[0]}
         />
       ))}
     </div>

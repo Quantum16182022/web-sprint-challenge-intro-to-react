@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-function Character({ characterName, planet }) {
+function Character({ characterName, homeworld}) {
   const [showPlanet, setShowPlanet] = useState(false);
   
   return (
@@ -11,7 +11,7 @@ function Character({ characterName, planet }) {
       <p>
   {showPlanet && 
     <span>
-      planet: <span className="character-planet">{planet}</span>
+      planet: <span className="character-planet">{homeworld}</span>
     </span>
   }
 </p>
