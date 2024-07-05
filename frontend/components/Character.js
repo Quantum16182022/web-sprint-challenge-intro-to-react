@@ -11,7 +11,7 @@ function Character({ characterName, homeworld}) {
       <p>
   {showPlanet && 
     <span>
-      planet: <span className="character-planet">{homeworld}</span>
+      Planet: <span className="character-planet">{homeworld}</span>
     </span>
   }
 </p>
