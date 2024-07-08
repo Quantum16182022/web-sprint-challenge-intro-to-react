@@ -14,7 +14,6 @@ function App() {
         axios.get(urlPlanets),
         axios.get(urlPeople)
       ]);
-      console.log(characters)
       setCharacters(peopleData.data.map(character => {
         const Planet = planetsData.data.find(planet => planet.id === character.homeworld);
         return {
